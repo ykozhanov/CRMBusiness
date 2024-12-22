@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'ads.apps.AdsConfig',
     'leads.apps.LeadsConfig',
+    'contracts.apps.ContractsConfig',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media/'
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
