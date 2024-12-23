@@ -18,16 +18,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='base.html'), name='home'),
+    path('', RedirectView.as_view(url='/accounts/profile/', permanent=True)),
     path('products/', include('products.urls')),
     path('ads/', include('ads.urls')),
     path('leads/', include('leads.urls')),
     path('contracts/', include('contracts.urls')),
     path('customers/', include('customers.urls')),
+    path('accounts/', include('users.urls')),
 ]
 
 if settings.DEBUG:

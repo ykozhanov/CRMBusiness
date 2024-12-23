@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'leads.apps.LeadsConfig',
     'contracts.apps.ContractsConfig',
     'customers.apps.CustomersConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
