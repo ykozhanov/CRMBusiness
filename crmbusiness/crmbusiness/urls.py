@@ -14,21 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/accounts/profile/', permanent=True)),
-    path('products/', include('products.urls')),
-    path('ads/', include('ads.urls')),
-    path('leads/', include('leads.urls')),
-    path('contracts/', include('contracts.urls')),
-    path('customers/', include('customers.urls')),
-    path('accounts/', include('users.urls')),
+    path("admin/", admin.site.urls),
+    path("", RedirectView.as_view(url="/accounts/profile/", permanent=True)),
+    path("products/", include("products.urls")),
+    path("ads/", include("ads.urls")),
+    path("leads/", include("leads.urls")),
+    path("contracts/", include("contracts.urls")),
+    path("customers/", include("customers.urls")),
+    path("accounts/", include("users.urls")),
 ]
 
 if settings.DEBUG:

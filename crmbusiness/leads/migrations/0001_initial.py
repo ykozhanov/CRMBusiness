@@ -9,20 +9,43 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('ads', '0002_alter_promotionchannel_options_and_more'),
+        ("ads", "0002_alter_promotionchannel_options_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_name', models.CharField(max_length=100)),
-                ('first_name', models.CharField(max_length=100)),
-                ('phone', models.CharField(max_length=20)),
-                ('email', models.EmailField(max_length=254)),
-                ('status', models.CharField(choices=[('lead', 'Лид'), ('active', 'Активный клиент')], default='lead', max_length=20)),
-                ('advertising', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='leads', to='ads.advertising')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("last_name", models.CharField(max_length=100)),
+                ("first_name", models.CharField(max_length=100)),
+                ("phone", models.CharField(max_length=20)),
+                ("email", models.EmailField(max_length=254)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[("lead", "Лид"), ("active", "Активный клиент")],
+                        default="lead",
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "advertising",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="leads",
+                        to="ads.advertising",
+                    ),
+                ),
             ],
         ),
     ]

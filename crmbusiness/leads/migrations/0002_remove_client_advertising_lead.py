@@ -7,24 +7,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ads', '0002_alter_promotionchannel_options_and_more'),
-        ('leads', '0001_initial'),
+        ("ads", "0002_alter_promotionchannel_options_and_more"),
+        ("leads", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='client',
-            name='advertising',
+            model_name="client",
+            name="advertising",
         ),
         migrations.CreateModel(
-            name='Lead',
+            name="Lead",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_name', models.CharField(max_length=100)),
-                ('first_name', models.CharField(max_length=100)),
-                ('phone', models.CharField(max_length=20)),
-                ('email', models.EmailField(max_length=254)),
-                ('advertising', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='leads', to='ads.advertising')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("last_name", models.CharField(max_length=100)),
+                ("first_name", models.CharField(max_length=100)),
+                ("phone", models.CharField(max_length=20)),
+                ("email", models.EmailField(max_length=254)),
+                (
+                    "advertising",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="leads",
+                        to="ads.advertising",
+                    ),
+                ),
             ],
         ),
     ]

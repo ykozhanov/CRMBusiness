@@ -7,14 +7,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('customers', '0001_initial'),
-        ('leads', '0002_remove_client_advertising_lead'),
+        ("customers", "0001_initial"),
+        ("leads", "0002_remove_client_advertising_lead"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customer',
-            name='lead',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='customer', to='leads.lead'),
+            model_name="customer",
+            name="lead",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="customer",
+                to="leads.lead",
+            ),
         ),
     ]

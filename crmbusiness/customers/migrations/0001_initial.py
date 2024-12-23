@@ -9,17 +9,39 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('contracts', '0002_alter_contract_cost_alter_contract_end_date'),
-        ('leads', '0001_initial'),
+        ("contracts", "0002_alter_contract_cost_alter_contract_end_date"),
+        ("leads", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Customer',
+            name="Customer",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('contract', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='customer', to='contracts.contract')),
-                ('lead', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='customer', to='leads.client')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "contract",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="customer",
+                        to="contracts.contract",
+                    ),
+                ),
+                (
+                    "lead",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="customer",
+                        to="leads.client",
+                    ),
+                ),
             ],
         ),
     ]
