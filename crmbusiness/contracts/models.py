@@ -12,7 +12,7 @@ class Contract(models.Model):
     document = models.FileField(upload_to='contracts')
     start_date = models.DateField()
     end_date = models.DateField(validators=[MinValueValidator(timezone.now().date())])
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    cost = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
 
     def __str__(self):
         return self.name
