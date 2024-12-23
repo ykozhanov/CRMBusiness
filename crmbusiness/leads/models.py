@@ -9,7 +9,6 @@ class Lead(models.Model):
     phone = models.CharField(max_length=20, null=False)
     email = models.EmailField(null=False)
     advertising = models.ForeignKey(Advertising, on_delete=models.SET_NULL, related_name='leads', null=True)
-    # status = models.CharField(max_length=20, choices=[('lead', 'Лид'), ('active', 'Активный клиент')], default='lead')
 
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
