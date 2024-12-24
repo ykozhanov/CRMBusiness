@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Count, DecimalField, ExpressionWrapper, F, Q, Sum
 from django.db.models.functions import Round
 from django.urls import reverse_lazy
@@ -14,35 +14,39 @@ from .forms import AdvertisingForm
 from .models import Advertising
 
 
-class AdvertisingListView(LoginRequiredMixin, ListView):
+class AdvertisingListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Advertising
     template_name = "ads/ads-list.html"
     context_object_name = "ads"
 
 
-class AdvertisingCreateView(LoginRequiredMixin, CreateView):
+class AdvertisingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Advertising
     form_class = AdvertisingForm
     template_name = "ads/ads-create.html"
     success_url = reverse_lazy("ads:ads-list")
+    permission_required = "ads.add_advertising"
 
 
-class AdvertisingDeleteView(LoginRequiredMixin, DeleteView):
+class AdvertisingDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Advertising
     template_name = "ads/ads-delete.html"
     success_url = reverse_lazy("ads:ads-list")
+    permission_required = "ads.delete_advertising"
 
 
-class AdvertisingDetailView(LoginRequiredMixin, DetailView):
+class AdvertisingDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Advertising
     template_name = "ads/ads-detail.html"
+    permission_required = "ads.view_advertising"
 
 
-class AdvertisingUpdateView(LoginRequiredMixin, UpdateView):
+class AdvertisingUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Advertising
     form_class = AdvertisingForm
     template_name = "ads/ads-edit.html"
     success_url = reverse_lazy("ads:ads-list")
+    permission_required = "ads.change_advertising"
 
 
 class StatisticListView(LoginRequiredMixin, ListView):
