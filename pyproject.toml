@@ -7,6 +7,7 @@ authors = ["ykozhanov <ykozhanov97@gmail.com>"]
 [tool.poetry.dependencies]
 python = "3.13"
 django = "5.1.4"
+python-dotenv = "1.0.1"
 
 
 [build-system]
