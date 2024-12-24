@@ -8,3 +8,5 @@ __pycache__/
 crmbusiness/media
 
 .python-version
+
+.env
