@@ -14,7 +14,7 @@ from .forms import AdvertisingForm
 from .models import Advertising
 
 
-class AdvertisingListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+class AdvertisingListView(LoginRequiredMixin, ListView):
     model = Advertising
     template_name = "ads/ads-list.html"
     context_object_name = "ads"
